@@ -1,0 +1,26 @@
+CREATE TABLE towns(id INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
+name VARCHAR(35) NOT NULL,
+PRIMARY KEY(id));
+
+CREATE TABLE addresses(id INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
+address_text VARCHAR(35), 
+town_id INT(11) NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY(town_id) REFERENCES towns(id));
+
+CREATE TABLE departments(id INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
+name varchar(35),
+PRIMARY KEY(id));
+
+CREATE TABLE employees(id INT(11) NOT NULL AUTO_INCREMENT UNIQUE,
+first_name VARCHAR(35) NOT NULL,
+middle_name VARCHAR(35) NOT NULL,
+last_name VARCHAR(35) NOT NULL,
+job_title VARCHAR(35) NOT NULL,
+department_id INT(11) NOT NULL,
+hire_date DATE NOT NULL,
+salary DOUBLE NOT NULL,
+address_id INT(11) NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY(department_id) REFERENCES departments(id),
+FOREIGN KEY(address_id) REFERENCES addresses(id));
