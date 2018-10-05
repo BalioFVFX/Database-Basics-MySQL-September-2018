@@ -4,3 +4,4 @@ ORDER BY salary DESC
 LIMIT 2,1) AS `third_highest_salary` FROM employees e1) AS t1
 WHERE third_highest_salary IS NOT NULL
 GROUP BY t1.department_id
+ORDER BY t1.department_id;
