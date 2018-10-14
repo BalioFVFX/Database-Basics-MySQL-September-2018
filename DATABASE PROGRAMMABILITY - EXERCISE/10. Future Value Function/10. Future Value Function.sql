@@ -1,0 +1,8 @@
+CREATE FUNCTION ufn_calculate_future_value(i DOUBLE, r DOUBLE, t INT)
+RETURNS DOUBLE
+DETERMINISTIC
+BEGIN
+DECLARE fv DOUBLE;
+SET fv = i *( POW( (1 + r), t) );
+RETURN fv;
+END
